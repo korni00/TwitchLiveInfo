@@ -16,12 +16,10 @@ interface TwitchResponse {
 }
 
 interface TwitchItem extends BoxProps {
-  nick: string;
   broadcasterid: number;
-  href: string;
 }
 
-const TwitchItem: FC<TwitchItem> = ({ nick, broadcasterid, href, ...rest }) => {
+const TwitchItem: FC<TwitchItem> = ({ broadcasterid, ...rest }) => {
   const [data, setData] = useState<TwitchData[] | []>([]);
   const twitchUrl = `https://api.twitch.tv/helix/channels?broadcaster_id=${broadcasterid}`;
 
@@ -52,9 +50,9 @@ const TwitchItem: FC<TwitchItem> = ({ nick, broadcasterid, href, ...rest }) => {
   return (
     <>
       {data.map((item, index) => (
-        <a href={href} target='_blank'>
+        <a href={`https://www.twitch.tv/${item.broadcaster_name}`} target='_blank'>
           <LiveHandler>
-            <CustomIframe src={`https://player.twitch.tv/?${nick}&parent=localhost`} />
+            <CustomIframe src={`https://player.twitch.tv/?${item.broadcaster_name}&parent=localhost`} />
             <LiveWrapper key={index}>
               <Typography variant='h3'>{item.title}</Typography>
               <Typography variant='h4'>{item.broadcaster_name}</Typography>
