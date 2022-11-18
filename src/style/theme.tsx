@@ -2,6 +2,7 @@ import { createTheme } from '@mui/material';
 
 const globalTheme = {
   typography: {
+    fontFamily: 'Poppins, sans-serif ',
     h1: {
       fontWeight: 700,
       fontSize: '2.5rem',
@@ -12,15 +13,18 @@ const globalTheme = {
     },
     h3: {
       fontWeight: 500,
-      fontSize: '1.5rem',
+      fontSize: '1rem',
+      color: 'white',
     },
     h4: {
-      fontWeight: 600,
-      fontSize: '1.2rem',
+      fontWeight: 500,
+      fontSize: '0.8rem',
+      color: '#adadb8',
     },
     h5: {
-      fontWeight: 600,
-      fontSize: '1rem',
+      fontWeight: 400,
+      fontSize: '0.7rem',
+      color: '#adadb8',
     },
   },
 
@@ -29,11 +33,16 @@ const globalTheme = {
       main: '#622afa',
       hover: '#8960f7',
       active: '#4523a1',
+      gray: '#101012',
+    },
+    background: {
+      paper: '#18181b',
+      dark: '#0e0e10',
     },
   },
   text: {
     light: '#dcdedc',
-    dark: '#121212',
+    dark: '#adadb8',
   },
 };
 
@@ -57,38 +66,6 @@ export const theme = createTheme({
       },
     },
 
-    MuiCircularProgress: {
-      styleOverrides: {
-        root: {
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          color: `${globalTheme.palette.primary.main}`,
-        },
-      },
-    },
-
-    MuiDivider: {
-      styleOverrides: {
-        root: {
-          background: `${globalTheme.palette.primary.main}`,
-        },
-      },
-    },
-
-    MuiCheckbox: {
-      styleOverrides: {
-        root: {
-          color: `${globalTheme.palette.primary.main}`,
-          textTransform: 'capitalize',
-          transition: '0.2s',
-          ':hover': {
-            color: `${globalTheme.palette.primary.hover}`,
-          },
-        },
-      },
-    },
-
     MuiTooltip: {
       styleOverrides: {
         tooltip: {
@@ -100,9 +77,12 @@ export const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: `
         body {
-          background: #18181b;
+          background: #0e0e10;
           overflow-x: hidden;
           color: ${globalTheme.text.light};
+        };
+        a {
+          color: rgba(0,0,0,0);
         }
         `,
     },
